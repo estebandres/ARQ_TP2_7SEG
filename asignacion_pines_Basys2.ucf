@@ -1,0 +1,27 @@
+#NET "boton_placa" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "clock_placa" LOC = "B8";
+
+NET "switches<7>" LOC ="N3";
+NET "switches<6>" LOC ="E2";
+NET "switches<5>" LOC ="F3";
+NET "switches<4>" LOC ="G3";
+NET "switches<3>" LOC ="B4";
+NET "switches<2>" LOC ="k3";
+NET "switches<1>" LOC ="L3";
+NET "switches<0>" LOC ="P11";
+
+#NET "boton_placa" LOC ="G12";
+
+NET "reg7SEG<0>" LOC ="N13";
+NET "reg7SEG<1>" LOC ="M12";
+NET "reg7SEG<2>" LOC ="L13";
+NET "reg7SEG<3>" LOC ="P12";
+NET "reg7SEG<4>" LOC ="N11";
+NET "reg7SEG<5>" LOC ="N14";
+NET "reg7SEG<6>" LOC ="H12";
+NET "reg7SEG<7>" LOC ="L14";
+
+#NET "sel_pantalla<3>" LOC = "F12";
+NET "sel_pantalla<2>" LOC = "J12";
+NET "sel_pantalla<1>" LOC = "M13";
+NET "sel_pantalla<0>" LOC = "K14";
