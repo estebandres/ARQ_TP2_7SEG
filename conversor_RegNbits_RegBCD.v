@@ -22,6 +22,7 @@
 module conversor_RegNbits_RegBCD(reg_binario,reg_BCD);//convierte un registro binario en un registro de cifras BCD
 //module conversor_RegNbits_RegBCD(reg_binario, habilitado,reg_BCD);//convierte un registro binario en un registro de cifras BCD
 	parameter TAM_REG_BIN = `BUS_DAT;
+
 	input reg_binario;
 // input reg_binario, habilitado;	
 	output reg_BCD; 
@@ -29,7 +30,7 @@ module conversor_RegNbits_RegBCD(reg_binario,reg_BCD);//convierte un registro bi
 	wire [TAM_REG_BIN-1 : 0] reg_binario; 
 	reg [TAM_REG_BIN-1 : 0] bin; 
 	reg [TAM_REG_BIN+3 : 0] reg_BCD; 
-	reg [TAM_REG_BIN+3: 0] resultado; 
+	reg [TAM_REG_BIN+3: 0] resultado;
 //	always@( reg_binario or habilitado )
 	always@( reg_binario) 
 	begin 
@@ -45,16 +46,34 @@ module conversor_RegNbits_RegBCD(reg_binario,reg_BCD);//convierte un registro bi
 			begin 
 			 
 				resultado[0] = bin[TAM_REG_BIN-1]; 
-
-				if ( resultado[3 : 0] > 4 ) 
-				resultado[3 : 0] = resultado[3 : 0] + 4'd3; 
-
-				if ( resultado[7 : 4] > 4 ) 
-				resultado[7 : 4] = resultado[7 : 4] + 4'd3; 
-
-				if ( resultado[11 : 8] > 4 ) 
-				resultado[11 : 8] = resultado[11 : 8] + 4'd3; 
-
+//
+//				if ( resultado[3 : 0] > 4 ) 
+//				resultado[3 : 0] = resultado[3 : 0] + 4'd3; 
+//
+//				if ( resultado[7 : 4] > 4 ) 
+//				resultado[7 : 4] = resultado[7 : 4] + 4'd3; 
+//
+//				if ( resultado[11 : 8] > 4 ) 
+//				resultado[11 : 8] = resultado[11 : 8] + 4'd3;
+//
+//				if ( resultado[15 : 12] > 4 ) 
+//				resultado[15 : 12] = resultado[15 : 12] + 4'd3;
+				
+//				for(iteracion=0;iteracion<(TAM_REG_BIN+4);iteracion=iteracion+4)
+//				begin
+//					if ( resultado[(iteracion+3) : iteracion] > 4 ) 
+//					resultado[iteracion+3 : iteracion] = (resultado>>iteracion) + 4'd3;
+//				end
+//				$display("--------------repeat-----------") ;
+				repeat(TAM_REG_BIN/4+1)
+				begin
+//					$display("El valor del registro: %b", resultado) ;
+//					$display("El valor de porcion: %b", resultado[3:0]) ;
+					if(resultado[3:0]>4)
+						resultado=resultado+4'd3;
+					resultado = {resultado[3:0], resultado[TAM_REG_BIN+3:4]};
+				end
+				
 				resultado = resultado << 1; 
 
 				bin = bin << 1; 
