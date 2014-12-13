@@ -31,7 +31,7 @@ module reloj_ms(clock_FPGA, reloj_N_ms);
 	
 	always@ (posedge clock_FPGA)
 	begin
-		if (contador >= CANT_MS*5)
+		if (contador >= CANT_MS*25000)
 		begin
 			contador = 0;
 			reloj_N_ms = ~reloj_N_ms;

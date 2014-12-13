@@ -21,7 +21,7 @@ NET "reg7SEG<5>" LOC ="N14";
 NET "reg7SEG<6>" LOC ="H12";
 NET "reg7SEG<7>" LOC ="L14";
 
-#NET "sel_pantalla<3>" LOC = "F12";
-NET "sel_pantalla<2>" LOC = "J12";
-NET "sel_pantalla<1>" LOC = "M13";
-NET "sel_pantalla<0>" LOC = "K14";
+#NET "sel_pantalla<3>" LOC = "K14";
+NET "sel_pantalla<2>" LOC = "M13";
+NET "sel_pantalla<1>" LOC = "J12";
+NET "sel_pantalla<0>" LOC = "F12";
